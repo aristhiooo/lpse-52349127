@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LPSE Provinsi DKI Jakarta -
+        Informasi Tender
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024">
+    <link rel="Shortcut Icon" href="/eproc4/public/images/4.3.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"
+        media="screen" />
+    <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"
+        media="screen" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap4-dialog@4.1.0/dist/css/bootstrap-dialog.min.css"
+        integrity="sha384-LfG7Aw5ifxofZdSTEkMO6XGBm+g6j2bj/fdo9Kqn6MioZArsSmez/+Nq0hUgq74y" crossorigin="anonymous"
+        media="screen" />
+    <link rel="stylesheet" href="/eproc4/public/css/application.css" media="screen" />
+
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 40px;
+        }
+
+        #border-popup-wrapper {
+            margin: 10px;
+        }
+
+        #main {
+            min-height: 400px;
+            clear: both;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="border-popup-wrapper">
+        <div id="main">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item"><a class="nav-link " href="/index.html">Pengumuman</a></li>
+                <li class="nav-item"><a class="nav-link " href="/peserta.html">Peserta</a></li>
+                <li class="nav-item"><a class="nav-link " href="/hasil-evaluasi.html">Hasil Evaluasi</a></li>
+                <li class="nav-item"><a class="nav-link " href="/pemenang.html">Pemenang</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/pemenang-berkontrak.html">Pemenang Berkontrak</a></li>
+            </ul>
+
+            <div class="content">
+                <table class="table table-sm">
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"
+        integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap4-dialog@4.1.0/dist/js/bootstrap-dialog.min.js"
+        integrity="sha384-1bnSbxclaEain3RMYjvqK0nYtZKyymGxwUbB6iGiFzw32KWToRchOZRyaXdzOM/4"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/eproc4/public/js/jquery.jclock.min.js"></script>
+    <script src="https://unpkg.com/jquery-validation@1.19.1/dist/jquery.validate.min.js"
+        integrity="sha384-6UVI3atWyL/qZbDIJb7HW8PyHhFNMiX5rYNY2gAYcaYJjYk5cNIQShSQPBleGMYu"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/eproc4/public/js/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/js/common.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".tip-top").tooltip({
+                placement: 'top'
+            });
+            $(".tip-right").tooltip({
+                placement: 'right'
+            });
+            $(".tip-bottom").tooltip({
+                placement: 'bottom'
+            });
+            $(".tip-left").tooltip({
+                placement: 'left'
+            });
+
+
+            $(".tooltip-examples a").tooltip({
+
+                title: 'It works in absence of title attribute.'
+
+            });
+        });
+        $.ajax({
+            url: "/eproc4/json/getservertime", cache: false, success: function (data) {
+                $('#realtime').jclock({
+                    format: '%d %B %Y %H:%M',
+                    seedTime: parseInt(data),
+                    utc: true,
+                    utc_offset: 7
+                });
+            }
+        });
+
+        function closeWindow(cmd) {
+            if (cmd == 'quit') {
+                open(location, '_self').close();
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
